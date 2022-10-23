@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const Login = () => {
+const Booking = () => {
   const [startDate, setStartDate] = useState(new Date());
 
   return (
@@ -78,4 +78,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Booking;

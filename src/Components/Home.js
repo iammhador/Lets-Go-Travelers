@@ -4,7 +4,11 @@ import france from "../Assets/france.jpg";
 import switzerland from "../Assets/swizerland.jpg";
 import turkey from "../Assets/turkey.jpg";
 import italy from "../Assets/italy.jpg";
+import { getAuth } from "firebase/auth";
+import app from "../Firebase/Firebase.init";
 const Home = () => {
+  const auth = getAuth(app);
+  console.log(auth);
   return (
     <div>
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -64,6 +68,7 @@ const Home = () => {
               alt="switzerland"
             />
           </Link>
+
           <Link to="/booking">
             <img
               className="object-cover w-full h-56 rounded shadow-lg"

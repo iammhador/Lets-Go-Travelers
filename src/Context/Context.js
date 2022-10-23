@@ -14,9 +14,10 @@ import app from "../Firebase/Firebase.init";
 import { GoogleAuthProvider } from "firebase/auth";
 
 const auth = getAuth(app);
-const googleProvider = new GoogleAuthProvider();
 
 export const AuthContext = createContext();
+
+const googleProvider = new GoogleAuthProvider();
 
 const Context = ({ children }) => {
   const [user, setUser] = useState();
@@ -57,7 +58,6 @@ const Context = ({ children }) => {
   //# Send Password Reset Email:
   const resetPassword = (email) => {
     setLoading(true);
-    console.log(email);
     return sendPasswordResetEmail(auth, email);
   };
 

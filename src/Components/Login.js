@@ -4,11 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/Context";
 import { useLocation } from "react-router-dom";
 
-const Booking = () => {
+const Login = () => {
   const [email, setUserEmail] = useState("");
   const { googleLogin, loginOldUser, resetPassword } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+
   const from = location?.state?.from?.pathname || "/";
 
   const handleGoogleLogin = () => {
@@ -22,19 +23,8 @@ const Booking = () => {
       });
   };
 
-  const handleForgetPassword = () => {
-    resetPassword(email)
-      .then(() => {
-        toast.success("Reset Password Link Has Been Sended");
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
@@ -46,6 +36,16 @@ const Booking = () => {
         form.reset();
         toast.success("User Login Successfully");
         navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const handleForgetPassword = () => {
+    resetPassword(email)
+      .then(() => {
+        toast.success("Reset Password Link Has Been Sended");
       })
       .catch((error) => {
         console.error(error);
@@ -67,7 +67,7 @@ const Booking = () => {
               Email
             </label>
             <input
-              onChange={(event) => setUserEmail(event.target.value)}
+              onBlur={(event) => setUserEmail(event.target.value)}
               type="text"
               name="email"
               id="email"
@@ -149,4 +149,4 @@ const Booking = () => {
   );
 };
 
-export default Booking;
+export default Login;

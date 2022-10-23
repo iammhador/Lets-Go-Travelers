@@ -9,7 +9,7 @@ const App = () => {
     <div>
       <Context>
         <RouterProvider router={router} />
-        <Toaster reverseOrder={true} />
+        <Toaster />
       </Context>
     </div>
   );
