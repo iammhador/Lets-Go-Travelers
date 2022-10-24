@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect } from "react";
 import toast from "react-hot-toast";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/Context";
@@ -9,9 +9,9 @@ const Register = () => {
     registerNewUser,
     sendVerification,
     updateNameAndPhoto,
-    user,
+    // user,
   } = useContext(AuthContext);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const handleGoogleLogin = () => {
     googleLogin()
       .then(() => {
@@ -48,11 +48,11 @@ const Register = () => {
         console.error(error);
       });
   };
-  useEffect(() => {
-    if (user) {
-      navigate("/");
-    }
-  }, [user, navigate]);
+  // useEffect(() => {
+  //   if (user) {
+  //     navigate("/");
+  //   }
+  // }, [user, navigate]);
   return (
     <div>
       <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100 my-20 mx-auto">

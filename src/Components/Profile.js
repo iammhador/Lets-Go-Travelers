@@ -31,10 +31,10 @@ const Profile = () => {
           </h3>
           <h3>
             Email Verified:{" "}
-            {user?.emailVerified ? (
-              <span className="text-teal-600">{user?.emailVerified}</span>
+            {user?.emailVerified === true ? (
+              <span className="text-teal-600">True</span>
             ) : (
-              <span className="text-rose-800">Email Not Verified</span>
+              <span className="text-rose-800">False</span>
             )}
           </h3>
           <h3>
@@ -42,7 +42,7 @@ const Profile = () => {
             {user?.uid ? (
               <span className="text-teal-600">{user?.uid}</span>
             ) : (
-              <span className="text-rose-800">Email Not Verified</span>
+              <span className="text-rose-800">User Id Not Found</span>
             )}
           </h3>
           <div className="card-actions justify-end"></div>
