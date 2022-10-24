@@ -31,8 +31,12 @@ const Register = () => {
     const password = form.password.value;
 
     registerNewUser(email, password)
-      .then(() => {
+      .then((result) => {
         form.reset();
+        console.log(result);
+        updateNameAndPhoto(username, photo)
+          .then(() => {})
+          .catch(() => {});
         sendVerification()
           .then(() => {
             toast.success("Verfication email has been send");
@@ -40,17 +44,14 @@ const Register = () => {
           .catch((error) => {
             console.error(error);
           });
-        updateNameAndPhoto(username, photo)
-          .then(() => {})
-          .catch(() => {});
       })
       .catch((error) => {
         console.error(error);
       });
   };
   // useEffect(() => {
-  //   if (user) {
-  //     navigate("/");
+  //   if (!user) {
+  //     navigate("/register");
   //   }
   // }, [user, navigate]);
   return (

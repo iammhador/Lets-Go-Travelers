@@ -20,7 +20,7 @@ export const AuthContext = createContext();
 const googleProvider = new GoogleAuthProvider();
 
 const Context = ({ children }) => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   //# Google Login :
   const googleLogin = () => {
@@ -42,13 +42,13 @@ const Context = ({ children }) => {
 
   //# Send Email Verification :
   const sendVerification = () => {
-    setLoading(true);
+    // setLoading(true);
     return sendEmailVerification(auth.currentUser);
   };
 
   //# Update User Name And Photo:
   const updateNameAndPhoto = (username, photo) => {
-    setLoading(true);
+    // setLoading(true);
     return updateProfile(auth.currentUser, {
       displayName: username,
       photoURL: photo,
